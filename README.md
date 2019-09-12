@@ -19,4 +19,4 @@ This repository is about High level programming using Python.
 
 [Twitter](https://twitter.com/dalexach)
 
-[:octocat:]
+[:octocat:](https://github.com/dalexach)
