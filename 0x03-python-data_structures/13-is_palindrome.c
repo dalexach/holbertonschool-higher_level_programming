@@ -58,12 +58,12 @@ int last_number(listint_t *head, int len)
 {
 	int i = 0;
 
-        while (i < len - 1)
-        {
-                head = head->next;
-                i++;
-        }
-        return (head->n);
+	while (i < len - 1)
+	{
+		head = head->next;
+		i++;
+	}
+	return (head->n);
 }
 /**
 * is_palindrome - Function that checks if a singly linked list is a palindrome.
