@@ -48,13 +48,13 @@ int length_of_list(listint_t *head)
 }
 
 /**
-* number - function to get the number of the list on the last index
+* last_number - function to get the number of the list on the last index
 * @head: head of the list
 * @len: length of the list
 * Return: the number on the index
 */
 
-int number(listint_t *head, int len)
+int last_number(listint_t *head, int len)
 {
 	int i = 0;
 
@@ -74,22 +74,17 @@ int number(listint_t *head, int len)
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp;
-	int len = 0, last_number, flag = 0;
+	int len = 0, i = 0;
 
 	if (head == NULL)
 		return (1);
 
 	temp = *head;
 	len = length_of_list(temp);
-	while (temp != NULL)
+	while (i < len - 1)
 	{
-		last_number = number(*head, len);
-		if (last_number == temp->n)
-			flag = 1;
 		temp = temp->next;
-		len--;
+		i++;
 	}
-	if (flag == 1)
-		return (1);
-	return (0);
+	return (palindrome(*head, temp, len));
 }
