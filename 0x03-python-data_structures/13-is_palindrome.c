@@ -30,6 +30,42 @@ int palindrome(listint_t *head, listint_t *temp, int len)
 }
 
 /**
+* length_of_list - Fucntion to take the length of the list
+* @head: head of the list
+* Return: The length of the list
+*/
+
+int length_of_list(listint_t *head)
+{
+	int len = 0;
+
+	while (head != NULL)
+	{
+		head = head->next;
+		len++;
+	}
+	return (len);
+}
+
+/**
+* number - function to get the number of the list on the last index
+* @head: head of the list
+* @len: length of the list
+* Return: the number on the index
+*/
+
+int number(listint_t *head, int len)
+{
+	int i = 0;
+
+        while (i < len - 1)
+        {
+                head = head->next;
+                i++;
+        }
+        return (head->n);
+}
+/**
 * is_palindrome - Function that checks if a singly linked list is a palindrome.
 * @head: head of the list.
 * Return: 0 if it is not a palindrome, else 1
@@ -38,22 +74,22 @@ int palindrome(listint_t *head, listint_t *temp, int len)
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp;
-	int len = 0, i = 0;
+	int len = 0, last_number, flag = 0;
 
 	if (head == NULL)
 		return (1);
 
 	temp = *head;
+	len = length_of_list(temp);
 	while (temp != NULL)
 	{
+		last_number = number(*head, len);
+		if (last_number == temp->n)
+			flag = 1;
 		temp = temp->next;
-		len++;
+		len--;
 	}
-	temp = *head;
-	while (i < len - 1)
-	{
-		temp = temp->next;
-		i++;
-	}
-	return (palindrome(*head, temp, len));
+	if (flag == 1)
+		return (1);
+	return (0);
 }
