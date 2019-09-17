@@ -18,7 +18,7 @@ int palindrome(listint_t *head, listint_t *temp, int len)
 		return (1);
 	else if (head->n == temp->n)
 	{
-		while (i < len - 1)
+		while (i < len - 2)
 		{
 			help = help->next;
 			i++;
