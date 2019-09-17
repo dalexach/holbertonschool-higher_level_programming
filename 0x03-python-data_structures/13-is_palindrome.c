@@ -18,12 +18,12 @@ int palindrome(listint_t *head, listint_t *temp, int len)
 		return (1);
 	else if (head->n == temp->n)
 	{
-		while (i < len - 2)
+		while (i < len - 1)
 		{
 			help = help->next;
 			i++;
 		}
-		return (palindrome(head->next, help, len - 2));
+		return (palindrome(head->next, help, len - 3));
 	}
 	else
 		return (0);
