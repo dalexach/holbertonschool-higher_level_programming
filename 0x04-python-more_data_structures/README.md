@@ -23,6 +23,13 @@ This project is about data structures like set and dictionary.
 | [11-mutiply_list_map.py](https://github.com/dalexach/holbertonschool-higher_level_programming/blob/master/0x04-python-more_data_structures/11-mutiply_list_map.py) | Function that returns a list with all values multiplied by a number without using any loops. |
 | [12-roman_to_int.py](https://github.com/dalexach/holbertonschool-higher_level_programming/blob/master/0x04-python-more_data_structures/12-roman_to_int.py) | Create a function def roman_to_int(roman_string): that converts a Roman numeral to an integer. |
 
+#### Advanced Tasks
+| File | Description |
+| ------ | ------ |
+| [100-weight_average.py](https://github.com/dalexach/holbertonschool-higher_level_programming/blob/master/0x04-python-more_data_structures/100-weight_average.py) | Function that returns the weighted average of all integers tuple (<score>, <weight>) |
+| [101-square_matrix_map.py](https://github.com/dalexach/holbertonschool-higher_level_programming/blob/master/0x04-python-more_data_structures/101-square_matrix_map.py) | Function that computes the square value of all integers of a matrix using map |
+| [102-complex_delete.py](https://github.com/dalexach/holbertonschool-higher_level_programming/blob/master/0x04-python-more_data_structures/102-complex_delete.py) | Function that deletes keys with a specific value in a dictionary. |
+
 
 ## Author
 
