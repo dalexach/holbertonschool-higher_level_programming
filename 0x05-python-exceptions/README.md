@@ -17,6 +17,13 @@ This project is about errors and exceptions handling in Python with try/except.
 | [5-raise_exception.py](5-raise_exception.py) | Function that raises a type exception. |
 | [6-raise_exception_msg.py](6-raise_exception_msg.py) | Function that raises a name exception with a message. |
 
+#### Advanced Tasks
+| File | Description |
+| ------ | ------ |
+| [100-safe_print_integer_err.py](100-safe_print_integer_err.py) | Function that prints an integer. |
+| [101-safe_function.py](101-safe_function.py) | Function that executes a function safely.  |
+
+
 ## Author
 
 [Daniela Chamorro](https://www.linkedin.com/in/daniela-alexandra-chamorro-guerrero-666805a1/) [:octocat:](https://github.com/dalexach)
