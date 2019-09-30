@@ -23,6 +23,10 @@ This project is about errors and exceptions handling in Python with try/except.
 | [100-safe_print_integer_err.py](100-safe_print_integer_err.py) | Function that prints an integer. |
 | [101-safe_function.py](101-safe_function.py) | Function that executes a function safely.  |
 
+## Directories
+| Directory | Description |
+| ------ | ------ |
+| mains | Contains the excecutable mains to try the functions |
 
 ## Author
 
