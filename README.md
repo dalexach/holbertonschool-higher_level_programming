@@ -12,6 +12,7 @@ This repository is about High level programming using Python.
 | [0x02-python-import_modules](https://github.com/dalexach/holbertonschool-higher_level_programming/tree/master/0x02-python-import_modules) | Introduction Python import and modules |
 | [0x03-python-data_structures](https://github.com/dalexach/holbertonschool-higher_level_programming/tree/master/0x03-python-data_structures) | Introduction to data structures: lists and tuples. |
 | [0x04-python-more_data_structures](https://github.com/dalexach/holbertonschool-higher_level_programming/tree/master/0x04-python-more_data_structures) | Second part of data structures: Dictionary and Set |
+| [0x05-python-exceptions](0x05-python-exceptions) | Introduction to manage exceptions |
 | []() |  |
 | []() |  |
 
