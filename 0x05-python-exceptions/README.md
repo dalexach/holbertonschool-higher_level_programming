@@ -26,7 +26,7 @@ This project is about errors and exceptions handling in Python with try/except.
 ## Directories
 | Directory | Description |
 | ------ | ------ |
-| mains | Contains the excecutable mains to try the functions |
+| [mains](mains) | Contains the excecutable mains to try the functions |
 
 ## Author
 
