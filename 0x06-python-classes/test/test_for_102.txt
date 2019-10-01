@@ -1,0 +1,241 @@
+Using "Square"
+___________________
+First import "Square" from the "102-square" module:
+
+    >>> Square = __import__('102-square').Square
+
+Now use it as:
+
+    >>> x = Square(3)
+    >>> print(type(x))
+    <class '4-square.Square'>
+
+Testing __init__(self, size)
+--------------------------------------
+size is an optional argument. If given ot must be an integer >= 0
+
+WRONG
+-----------------------
+
+    >>> x = Square(-1)
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+    >>> x = Square("hello")
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x = Square([1, 2])
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>>	       x = Square({})
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>>	       x = Square(("a", 1))
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x = Square(set())
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x = Square(3.141592654)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x = Square({})
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x = Square(True)
+
+
+GOOD
+-----------------
+
+    >>> x = Square(3)
+    >>> print(type(x))
+    <class '4-square.Square'>
+
+    >>> print(x.__dict__)
+    {'_Square__size': 3}
+
+
+    >>> x = Square()
+    >>> print(type(x))
+    <class '4-square.Square'>
+
+    >>> print(x.__dict__)
+    {'_Square__size': 0}
+
+    >>> x = Square(0)
+    >>> print(type(x))
+    <class '4-square.Square'>
+
+    >>> print(x.__dict__)
+    {'_Square__size': 0}
+
+
+Testing the hidden attribute
+--------------------------------------
+Can't use "x.size" as the gratter will run and work
+
+    >>> x = Square(3)
+    >>> print(x._Square__size)
+    3
+
+Testing size to retieve the size
+--------------------------------------
+
+    >>> x = Square()
+    >>> print(x.size)
+    0
+
+    >>> x = Square(5)
+    >>> print(x.size)
+    5
+
+Testing to set size
+--------------------------------------
+
+WRONG:
+_________________________
+    >>> x.size = -1
+    Traceback (most recent call last):
+    ValueError: size must be >= 0
+
+    >>> x.size = "hello"
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x.size = [1, 2]
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x.size = {}
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x.size = ("a", 1)
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x.size = set()
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x.size = 3.141592654
+    Traceback (most recent call last):
+    TypeError: size must be an integer
+
+    >>> x.size = True
+
+
+GOOD
+________________________
+
+    >>> x = Square(3)
+    >>> print(x.size)
+    3
+
+    >>> x.size = 0
+    >>> print(x.size)
+    0
+
+    >>> x.size = 5
+    >>> print(x.size)
+    5
+
+Testing calculate the area
+--------------------------------------
+
+    >>> x = Square(3)
+    >>> print(x.area())
+    9
+
+    >>> x.size = 0
+    >>> print(x.area())
+    0
+
+    >>> x.size = 5
+    >>> print(x.area())
+    25
+
+Comparison operator testing with different values
+--------------------------------------
+
+    >>> x = Square(3)
+    >>> y = Square(4)
+    >>> print(x < y)
+    True
+
+    >> print(y < x)
+    False
+
+    >>> print(x > y)
+    False
+
+    >>> print(y > x)
+    True
+
+    >>> print(x == y)
+    False
+
+    >>> print(y == x)
+    False
+
+    >>> print(x != y)
+    True
+
+    >>> print(y != x)
+    True
+
+    >>> print(x <= y)
+    True
+
+    >>> print(y <= x)
+    False
+
+    >>> print(x >= y)
+    False
+
+    >>> print(y >= x)
+    True
+
+
+Comparison operator testing with same values
+--------------------------------------
+
+   >>> x = Square(3)
+   >>> y = Square(4)
+   >>> print(x == y)
+   True
+
+   >>> print(y == x)
+   True
+
+   >>> print(x != y)
+   False
+
+   >>> print(y != x)
+   False
+
+   >>> print(y <= x)
+   True
+
+   >>> print(y >= x)
+   True
+
+   >>> print(x > y)
+   False
+
+   >>> print(y > x)
+   False
+
+   >>> print(y < x)
+   False
+
+   >>> print(x < y)
+   False
