@@ -43,11 +43,11 @@ class Square:
         else:
             for r in range(self.size):
                 for c in range(self.size):
-                    print("#",end="")
+                    print("#", end="")
                 print()
 
     def __check_size__(self, size):
-        """ 
+        """
         Size error checking
         Arguments:
         @size: value of size
