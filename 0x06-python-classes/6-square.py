@@ -44,9 +44,9 @@ class Square:
         Arguments:
         @value: coordination of position
         """
-        if len(value) != 2 or isinstance(value, tuple) is False or \
-           isinstance(value[0], int) is False or value[0] < 0 or \
-           isinstance(value[1], int) is False or value[1] < 0:
+        if len(value) != 2 or type(value) != tuple or \
+           type(value[0]) != int or value[0] < 0 or \
+           type(value[1]) != int or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
         else:
             self.__position = value
@@ -78,7 +78,7 @@ class Square:
         Arguments:
         @size: value of size
         """
-        if not isinstance(size, int):
+        if type(size) != int:
             raise TypeError("size must be an integer")
         elif size < 0:
             raise ValueError("size must be >= 0")
