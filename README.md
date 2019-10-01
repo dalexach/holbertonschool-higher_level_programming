@@ -13,7 +13,7 @@ This repository is about High level programming using Python.
 | [0x03-python-data_structures](https://github.com/dalexach/holbertonschool-higher_level_programming/tree/master/0x03-python-data_structures) | Introduction to data structures: lists and tuples. |
 | [0x04-python-more_data_structures](https://github.com/dalexach/holbertonschool-higher_level_programming/tree/master/0x04-python-more_data_structures) | Second part of data structures: Dictionary and Set |
 | [0x05-python-exceptions](0x05-python-exceptions) | Introduction to manage exceptions |
-| []() |  |
+| [0x06-python-classes](0x06-python-classes) | Introduction to Oriented Object Programming |
 | []() |  |
 
 ## Author
