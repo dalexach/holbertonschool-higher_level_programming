@@ -26,6 +26,11 @@ OOP is a totally new concept for all of you (especially those who think they kno
 | ------ | ------ |
 | []() |  |
 
+## Directories
+| File | Description |
+| [test](test) | Files to test every point of the project |
+
+
 ## Author
 
 [Daniela Chamorro](https://www.linkedin.com/in/daniela-alexandra-chamorro-guerrero-666805a1/) [:octocat:](https://github.com/dalexach)
