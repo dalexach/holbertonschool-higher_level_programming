@@ -119,4 +119,8 @@ class Rectangle:
         Return:
         A rectangle with height and width
         """
-        return cls(size, size)
+        if type(size) != int:
+            raise TypeError("size must be an integer")
+        if size < 0:
+            raise ValueError("size must be >= 0")
+        return Rectangle(size, size)
