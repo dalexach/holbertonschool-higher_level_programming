@@ -14,6 +14,10 @@ This repository is about High level programming using Python.
 | [0x04-python-more_data_structures](https://github.com/dalexach/holbertonschool-higher_level_programming/tree/master/0x04-python-more_data_structures) | Second part of data structures: Dictionary and Set |
 | [0x05-python-exceptions](0x05-python-exceptions) | Introduction to manage exceptions |
 | [0x06-python-classes](0x06-python-classes) | Introduction to Oriented Object Programming |
+| [0x07-python-test_driven_development](0x07-python-test_driven_development) | Project about how to develop test cases and how to run it |
+| [0x08-python-more_classes](0x08-python-more_classes) | Second part of Python classes |
+| [0x09-python-everything_is_object](0x09-python-everything_is_object) | Introduction to know mutavle and immutable objects in Python |
+| [0x0A-python-inheritance](0x0A-python-inheritance) | Introduction to inhiretance |
 | []() |  |
 
 ## Author
