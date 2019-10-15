@@ -30,7 +30,8 @@ This project is about inheritance in Python.
 ## Directories
 | File | Description |
 | ------ | ------ |
-| [tests](tests) | test cases to the functions |
+| [tests](tests) | test cases to the functions and classes |
+| [mains](mains) | Main files to test the functions and classes |
 
 ## Author
 
