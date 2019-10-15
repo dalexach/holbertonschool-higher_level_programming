@@ -25,7 +25,8 @@ This project is about inheritance in Python.
 #### Advanced Tasks
 | File | Description |
 | ------ | ------ |
-| []() |  |
+| [100-my_int.py](100-my_int.py ) | Class MyInt that inherits from int and has == and != operators inverted. |
+| [101-add_attribute.py](101-add_attribute.py) | Function that adds a new attribute to an object if it’s possible. |
 
 ## Directories
 | File | Description |
