@@ -34,9 +34,11 @@ ______________________________
 >>> my_list.print_sorted()
 [20, 400, 3000, 50000, 100000000000]
 
+>>> my_list = MyList()
 >>> my_list.print_sorted()
 []
 
+>>> my_list = MyList()
 >>> my_list.append(-1)
 >>> my_list.append(-4)
 >>> my_list.append(-10)
