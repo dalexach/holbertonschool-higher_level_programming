@@ -24,15 +24,11 @@ This project is about how to manage files.
 | [13-student.py](13-student.py) | Class Student that defines a student by: (based on 12-student.py) |
 | [14-pascal_triangle.py](14-pascal_triangle.py) | Create a function def pascal_triangle(n): that returns a list of lists of integers representing the Pascal’s triangle of n |
 
-#### Advanced Tasks
-| File | Description |
-| ------ | ------ |
-| []() |  |
-
 ## Directories
 | File | Description |
 | ------ | ------ |
-| []() |  |
+| [mains](mains) | Main files for test the functions and classes |
+| [tests](tests) | Test file cases for test the functions and clases |
 
 ## Author
 
