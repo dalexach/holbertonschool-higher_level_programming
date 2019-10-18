@@ -71,6 +71,15 @@ class Rectangle(Base):
         self.validator("y", value)
         self.__y = value
 
+    # magic methods
+    def __str__(self):
+        """
+        formats string representation of the Rectangle
+        """
+        return ("[{}] ({}) {}/{} - {}/{}".format(
+                self.__class__.__name__, self.id,
+                self.x, self.y, self.__width, self.__height))
+
     # public methods
     def validator(self, name, value):
         """ 
