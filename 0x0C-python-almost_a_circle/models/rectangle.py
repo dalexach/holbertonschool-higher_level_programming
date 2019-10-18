@@ -75,6 +75,12 @@ class Rectangle(Base):
     def validator(self, name, value):
         """ 
         validator - method that checks for legal values
+        Arguments:
+        @name: name of the attribute to check
+        @value: value of the attribute to check
+        Returns:
+        A raise Type or Value error if is not an integer or
+        if is not a positive number, respectly
         """
         if not isinstance(value, int):
             raise TypeError("{} must be an integer".format(name))
@@ -82,3 +88,11 @@ class Rectangle(Base):
             raise ValueError("{} must be > 0".format(name))
         if value < 0 and (name is "x" or name is "y"):
             raise ValueError("{} must be >= 0".format(name))
+
+    def area(self):
+        """
+        area - method that returns the area value
+        Returns:
+        The area of the rectangle
+        """
+        return self.__width * self.__height
