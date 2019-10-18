@@ -82,7 +82,7 @@ class Rectangle(Base):
 
     # public methods
     def validator(self, name, value):
-        """ 
+        """
         validator - method that checks for legal values
         Arguments:
         @name: name of the attribute to check
