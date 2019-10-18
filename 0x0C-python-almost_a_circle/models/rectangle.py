@@ -17,9 +17,9 @@ class Rectangle(Base):
         Arguments:
         @width: width of the rectangle
         @height: height of the rectangle
-        @x: 
-        @y:
-        @id: 
+        @x: position in x
+        @y: position in y
+        @id: amount of instances created
         """
         self.width = width
         self.height = height
