@@ -111,7 +111,11 @@ class Rectangle(Base):
         display - method that prints in stdout the Rectangle instance
         with the character #
         """
+        for posy in range(self.__y):
+            print()
         for r in range(self.__height):
+            for posx in range(self.__x):
+                print(" ", end="")
             for c in range(self.__width):
                 print('#', end="")
             print()
