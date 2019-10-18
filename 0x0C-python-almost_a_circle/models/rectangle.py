@@ -150,3 +150,15 @@ class Rectangle(Base):
                     self.__x = value
                 if key == 'y':
                     self.__y = value
+
+    def to_dictionary(self):
+        """
+        to_dictionary - returns a dictionary representation of a Rectangle
+        """
+        temp = {}
+        for key, value in self.__dict__.items():
+            if key == 'id':
+                temp[key] = value
+            else:
+                temp[key[12:]] = value
+        return temp
