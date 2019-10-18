@@ -34,8 +34,8 @@ class Square(Rectangle):
         Rectangle.width = value
         Rectangle.height = value
 
-
     # magic methods
+
     def __str__(self):
         """
         formats string representation of the Square
@@ -45,6 +45,7 @@ class Square(Rectangle):
                 self.x, self.y, self.width))
 
     # public methods
+
     def update(self, *args, **kwargs):
         """
         update - assign the arguments to each attribute
@@ -67,3 +68,19 @@ class Square(Rectangle):
                     self.width = value
                     self.height = value
 
+    def to_dictionary(self):
+        """
+        to_dictionary - returns a dictionary representation of a Square
+        """
+        temp = {}
+        for key, value in self.__dict__.items():
+            if key == 'id':
+                temp[key] = value
+            elif key[:12] == 'Rectangle__':
+                if key[12:] == 'width' or key[12:] == 'height':
+                    temp['size'] = value
+                else:
+                    temp[key[12:]] = value
+            elif key[:9] == '_Square__':
+                temp[key[9:]] = value
+        return temp
