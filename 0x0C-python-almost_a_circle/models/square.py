@@ -22,6 +22,19 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
+    @property
+    def size(self):
+        """ Getter for width of square """
+        return self.width
+
+    @size.setter
+    def size(self, value):
+        """ Setter for width of square """
+        super().validator("width", value)
+        Rectangle.__width = value
+        Rectangle.__height = value
+
+
     # magic methods
     def __str__(self):
         """
