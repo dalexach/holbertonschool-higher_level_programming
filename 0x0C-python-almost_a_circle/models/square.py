@@ -31,8 +31,8 @@ class Square(Rectangle):
     def size(self, value):
         """ Setter for width of square """
         super().validator("width", value)
-        Rectangle.__width = value
-        Rectangle.__height = value
+        Rectangle.width = value
+        Rectangle.height = value
 
 
     # magic methods
