@@ -56,3 +56,17 @@ class Base:
                     i = i.to_dictionary()
                     jlist.append(i)
                 f.write(cls.to_json_string(jlist))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """
+        Converts a dictionary to a JSON string representation
+        Arguments:
+        @json_string: is a string representing a list of dictionaries
+        Returns:
+        list of JSON string representation, otherwise a empty list
+        """
+        if json_string is None or len(json_string) == 0:
+            return []
+        else:
+            return json.loads(json_string)
