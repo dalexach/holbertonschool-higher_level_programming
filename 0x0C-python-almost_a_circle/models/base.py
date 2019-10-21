@@ -76,7 +76,7 @@ class Base:
         """
         Returns an instance with all attributes already set
         Arguments:
-        @cls: class
+        @cls: current class
         @dictionary: can be thought of as a double pointer to a dictionary
         Returns:
         An instance with all attributes already set
@@ -90,3 +90,24 @@ class Base:
             new = Square(1, 0, 0)
         new.update(**dictionary)
         return new
+
+    @classmethod
+    def load_from_file(cls):
+        """
+        Return a list of instances
+        Arguments:
+        @cls: current class
+        Returns:
+        An empty list if the file does not exist, otherwise,
+        return a list of instances, the type of these instances depends on cls
+        """
+        try:
+            with open('{}.json'.format(cls.__name__), 'r') as f:
+                jtext = f.read()
+                new_object = cls.from_json_string(jtext)
+                new_list = []
+                for i in new_object:
+                    new_list.append(cls.create(**i))
+        except FileNotFoundError as e:
+            return []
+        return new_list
