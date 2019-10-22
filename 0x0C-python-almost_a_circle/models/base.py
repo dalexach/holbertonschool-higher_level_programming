@@ -102,7 +102,7 @@ class Base:
         return a list of instances, the type of these instances depends on cls
         """
         try:
-            with open('{}.json'.format(cls.__name__), 'r') as f:
+            with open('{}.json'.format(cls.__name__), mode='r', encoding='utf-8') as f:
                 jtext = f.read()
                 new_object = cls.from_json_string(jtext)
                 new_list = []
