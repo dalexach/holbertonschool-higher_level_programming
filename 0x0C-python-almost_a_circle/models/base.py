@@ -81,13 +81,10 @@ class Base:
         Returns:
         An instance with all attributes already set
         """
-        from models.rectangle import Rectangle
-        from models.square import Square
-
         if cls.__name__ == "Rectangle":
-            new = Rectangle(1, 1, 0, 0)
+            new = cls(1, 1, 0, 0)
         elif cls.__name__ == "Square":
-            new = Square(1, 0, 0)
+            new = cls(1, 0, 0)
         new.update(**dictionary)
         return new
 
@@ -109,5 +106,5 @@ class Base:
                 for i in new_object:
                     new_list.append(cls.create(**i))
                 return new_list
-        except FileNotFoundError as e:
+        except FileNotFoundError:
             return []

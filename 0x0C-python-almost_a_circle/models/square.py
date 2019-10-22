@@ -53,24 +53,23 @@ class Square(Rectangle):
         @kargs: dictionary of arguments, key represents
         an attribute to the instance
         """
-        if isinstance(args, tuple):
-            if len(args) > 1:
-                self.id = args[0]
-                self.width = args[1]
-                self.height = args[1]
-                self.x = args[2]
-                self.y = args[3]
+        if len(args) > 1:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[1]
+            self.x = args[2]
+            self.y = args[3]
         if not args:
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
-                elif key == 'size':
+                if key == 'size':
                     self.width = value
                     self.height = value
-                elif key == 'x':
+                if key == 'x':
                     self.x = value
-                elif key == 'y':
-                    self.y == value
+                if key == 'y':
+                    self.y = value
 
     def to_dictionary(self):
         """
