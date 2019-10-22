@@ -55,27 +55,25 @@ class Square(Rectangle):
         """
         if isinstance(args, tuple):
             if len(args) > 1:
-                temp = list(args)
-                temp.insert(1, args[1])
-                temp = tuple(temp)
-                super().update(*temp)
-            else:
-                super().update(*args)
+                self.id = args[0]
+                self.width = args[1]
+                self.height = args[1]
+                self.x = args[2]
+                self.y = args[3]
         if not args:
-            super().update(**kwargs)
             for key, value in kwargs.items():
-                if key == 'size':
+                if key == 'id':
+                    self.id = value
+                elif key == 'size':
                     self.width = value
                     self.height = value
+                elif key == 'x':
+                    self.x = value
+                elif key == 'y':
+                    self.y == value
 
     def to_dictionary(self):
         """
         to_dictionary - returns a dictionary representation of a Square
         """
-        temp = {}
-        for key in self.__dict__.keys():
-            if key in ["_Rectangle__height", "_Rectangle__width"]:
-                temp["size"] = self.__dict__[key]
-                continue
-            temp[key.split('-')[-1]] = self.__dict__[key]
-        return temp
+        return {'x': self.x, 'y': self.y, 'id': self.id, 'size': self.width}
