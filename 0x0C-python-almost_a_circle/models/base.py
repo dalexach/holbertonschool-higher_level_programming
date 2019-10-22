@@ -5,6 +5,7 @@ Module for Base class
 
 
 import json
+import turtle
 
 
 class Base:
@@ -108,3 +109,35 @@ class Base:
                 return new_list
         except FileNotFoundError:
             return []
+
+    @staticmethod
+    def draw(list_rectangles, list_squares):
+        """
+        draw - Draws squares and rectangles
+        """
+        my_turtle = turtle.Turtle()
+        for r in list_rectangles:
+            my_turtle.setheadint(0)
+            my_turtle.penup()
+            my_turtle.goto(r.c, r.y)
+            my_turtle.pendown()
+            my_turtle.forward(r.width)
+            my_turtle.right(90)
+            my_turtle.forward(r.height)
+            my_turtle.right(90)
+            my_turtle.forward(r.width)
+            my_turtle.right(90)
+            my_turtle.forward(r.height)
+        for s in list_squares:
+            my_turtle.setheadint(0)
+            my_turtle.penup()
+            my_turtle.goto(s.c, s.y)
+            my_turtle.pendown()
+            my_turtle.forward(s.size)
+            my_turtle.right(90)
+            my_turtle.forward(s.size)
+            my_turtle.right(90)
+            my_turtle.forward(s.size)
+            my_turtle.right(90)
+            my_turtle.forward(s.size)
+        input()
