@@ -108,6 +108,7 @@ class Base:
                 new_list = []
                 for i in new_object:
                     new_list.append(cls.create(**i))
+                return new_list
         except FileNotFoundError as e:
             return []
         return new_list
