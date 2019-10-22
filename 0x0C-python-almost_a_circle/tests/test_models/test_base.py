@@ -4,7 +4,6 @@ Unit test for the Base class
 """
 
 import unittest
-import os
 import json
 from models.base import Base
 from models.rectangle import Rectangle
@@ -15,6 +14,13 @@ class TestBase(unittest.TestCase):
     """
     Test cases for the Base class
     """
+
+    def tearDown(self):
+        """
+        Reset the nb_objects
+        """
+        Base._Base__nb_objects = 0
+
     def test_docstring(self):
         """
         Testing docstring
@@ -42,7 +48,6 @@ class TestBase(unittest.TestCase):
         """
         Testing the creation of the base
         """
-        Base._Base__nb_objects = 0
         b = Base()
         test = str(b)
         b1 = Base(12)
@@ -60,7 +65,6 @@ class TestBase(unittest.TestCase):
         """
         Testing the increment of the nb_objects
         """
-        Base._Base__nb_objects = 0
         b = Base()
         test = b.id
         b1 = Base()
@@ -74,7 +78,6 @@ class TestBase(unittest.TestCase):
         """
         Test setting nb_objects private class attribute
         """
-        Base._Base__nb_objects = 0
         b = Base(3)
         with self.assertRaises(AttributeError):
             print(b.nb_objects)
@@ -85,7 +88,6 @@ class TestBase(unittest.TestCase):
         """
         Test if the function to_json_string is working with dictionaries
         """
-        Base._Base__nb_objects = 0
         r = Rectangle(10, 7, 2, 8)
         d = r.to_dictionary()
         jd = {'x': 2, 'y': 8, 'id': 1, 'height': 7, 'width': 10}
@@ -98,7 +100,6 @@ class TestBase(unittest.TestCase):
         """
         Test if the static method is working for string to JSON conversion
         """
-        Base._Base__nb_objects = 0
         self.assertEqual(Base.to_json_string(None), "[]")
         self.assertTrue(type(Base.to_json_string(None)) is str)
         self.assertEqual(Base.to_json_string([]), "[]")
