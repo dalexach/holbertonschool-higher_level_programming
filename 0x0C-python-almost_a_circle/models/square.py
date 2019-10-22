@@ -73,14 +73,9 @@ class Square(Rectangle):
         to_dictionary - returns a dictionary representation of a Square
         """
         temp = {}
-        for key, value in self.__dict__.items():
-            if key == 'id':
-                temp[key] = value
-            elif key[:12] == 'Rectangle__':
-                if key[12:] == 'width' or key[12:] == 'height':
-                    temp['size'] = value
-                else:
-                    temp[key[12:]] = value
-            elif key[:9] == '_Square__':
-                temp[key[9:]] = value
+        for key in self.__dict__.keys():
+            if key in ["_Rectangle__height", "_Rectangle__width"]:
+                temp["size"] = self.__dict__[key]
+                continue
+            temp[key.split('-')[-1]] = self.__dict__[key]
         return temp
