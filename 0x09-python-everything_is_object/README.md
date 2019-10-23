@@ -28,7 +28,7 @@ This project is about objects in Python, mutable and immutable objects.
 | [16-answer.txt](16-answer.txt) | Integer incrementation |
 | [17-answer.txt](17-answer.txt) | List incrementation |
 | [18-answer.txt](18-answer.txt) | List assignation |
-| [19-answer.txt](19-answer.txt) | Copy a list object |
+| [19-copy_list.py](19-copy_list.py) | Copy a list object |
 | [20-answer.txt](20-answer.txt) | Tuple or not? |
 | [21-answer.txt](21-answer.txt) | Tuple or not? |
 | [22-answer.txt](22-answer.txt) | Tuple or not? |
@@ -43,11 +43,6 @@ This project is about objects in Python, mutable and immutable objects.
 | [106-line3.txt](106-line3.txt) | Clear strings |
 | [106-line4.txt](106-line4.txt) | Clear strings |
 | [106-line5.txt](106-line5.txt) | Clear strings |
-
-#### Advanced Tasks
-| File | Description |
-| ------ | ------ |
-| []() |  |
 
 ## Author
 
