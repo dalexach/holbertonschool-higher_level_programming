@@ -5,6 +5,7 @@ Unit test for the Base class
 
 import unittest
 import json
+import os
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -189,3 +190,24 @@ class TestBase(unittest.TestCase):
         Square.save_to_file(listsquares)
         listsquare = Square.load_from_file()
         self.assertNotEqual(listsquares, listsquare)
+
+    def test_square_csv_file(self):
+        """
+        Testing csv file
+        """
+        R1 = Rectangle(12, 13, 14, 15)
+        R2 = Rectangle(3, 5)
+        lR = [R1, R2]
+        Rectangle.save_to_file_csv(lR)
+        lR2 = Rectangle.load_from_file_csv()
+        self.assertTrue(lR[0].__str__() == lR2[0].__str__())
+        self.assertTrue(lR[1].__str__() == lR2[1].__str__())
+
+    def test_square_csv_save_file(self):
+        """
+        Testing csv file with None and empty
+        """
+        Rectangle.save_to_file_csv(None)
+        self.assertEqual(Rectangle.load_from_file_csv(), [])
+        os.remove("Rectangle.csv")
+        self.assertEqual(Rectangle.load_from_file_csv(), [])

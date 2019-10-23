@@ -20,15 +20,19 @@ class TestRectangle(unittest.TestCase):
     """
 
     def setUp(self):
+        """
+        Redirect the stdout to check the output of functions that prints
+        """
         sys.stdout = StringIO()
 
     def tearDown(self):
         """
-        Reset the nb_objects
+        Reset the nb_objects and clean everything
         """
         Base._Base__nb_objects = 0
+        sys.stdout = sys.__stdout__
 
-    def test_pep8_conformance(self):
+    def test_pep8_conformance_model(self):
         """
         Test that we conform to PEP8.
         """
@@ -163,7 +167,7 @@ class TestRectangle(unittest.TestCase):
     def test_rectangle_ValueError_x(self):
         """
         Testing the ValueError with the x argument
-        """                                     
+        """
         with self.assertRaisesRegex(ValueError, "x must be >= 0"):
             Rectangle(10, 2, -1)
             Rectangle(10, 2, -100)
@@ -208,10 +212,10 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(2, 2)
         r1 = Rectangle(2, 3)
         r_out = "##\n" \
-        "##\n"
+                "##\n"
         r1_out = "##\n" \
-        "##\n" \
-        "##\n"
+                 "##\n" \
+                 "##\n"
         try:
             r.display()
             self.assertEqual(sys.stdout.getvalue(), r_out)
@@ -239,26 +243,26 @@ class TestRectangle(unittest.TestCase):
         Testing the display method with x and y positions
         """
         r = Rectangle(2, 3, 2, 2)
-        r_out  = "\n" \
-        "\n" \
-        "  ##\n" \
-        "  ##\n" \
-        "  ##\n"
+        r_out = "\n" \
+                "\n" \
+                "  ##\n" \
+                "  ##\n" \
+                "  ##\n"
         r1 = Rectangle(3, 4, 1)
         r1_out = " ###\n" \
-        " ###\n" \
-        " ###\n" \
-        " ###\n"
+                 " ###\n" \
+                 " ###\n" \
+                 " ###\n"
         try:
             r.display()
             self.assertEqual(sys.stdout.getvalue(), r_out)
         finally:
             sys.stdout.seek(0)
             sys.stdout.truncate(0)
-        try:   
+        try:
             r1.display()
             self.assertEqual(sys.stdout.getvalue(), r1_out)
-        finally:      
+        finally:
             sys.stdout.seek(0)
             sys.stdout.truncate(0)
 
@@ -319,3 +323,68 @@ class TestRectangle(unittest.TestCase):
         self.assertEqual(r.__str__(), "[Rectangle] (89) 1/3 - 4/2")
         r.update({'x': 10, 'height': 8})
         self.assertIs(type(r.id), dict)
+
+    def test_to_dict(self):
+        """
+        Testing to_dictionary method producing a dictionary
+        """
+        r = Rectangle(10, 2, 1, 9)
+        self.assertEqual(r.__str__(), "[Rectangle] (1) 1/9 - 10/2")
+        self.assertEqual(r.to_dictionary(), {'x': 1, 'y': 9,
+                                              'id': 1, 'height': 2,
+                                              'width': 10})
+        self.assertIs(type(r.to_dictionary()), dict)
+        r1 = Rectangle(1, 1)
+        self.assertEqual(r1.__str__(), "[Rectangle] (2) 0/0 - 1/1")
+        r1.update(**r.to_dictionary())
+        self.assertEqual(r1.__str__(), "[Rectangle] (1) 1/9 - 10/2")
+        self.assertNotEqual(r, r1)
+
+    def test_rectangle_save_file(self):
+        """
+        Testing save_to_file method 
+        """
+        Base._Base__nb_objects = 0
+        r = Rectangle(10, 7, 2, 8)
+        r1 = Rectangle(2, 4)
+        Rectangle.save_to_file([r, r1])
+        self.assertTrue(os.path.exists("Rectangle.json"), True)
+        with open("Rectangle.json", mode='r') as myFile:
+            self.assertEqual(json.loads(myFile.read()),
+                             json.loads('[{"y": 8, '
+                                        '"x": 2, '
+                                        '"id": 1, '
+                                        '"width": 10, '
+                                        '"height": 7}, '
+                                        '{"y": 0, '
+                                        '"x": 0, '
+                                        '"id": 2, '
+                                        '"width": 2, '
+                                        '"height": 4}]'))
+        os.remove("Rectangle.json")
+
+    def test_rectangle_save_file_none(self):
+        """
+        Testing save_to_file method with None
+        """
+        r = Rectangle(10, 7, 2, 8)
+        r1 = Rectangle(2, 4)
+        Rectangle.save_to_file(None)
+        self.assertTrue(os.path.exists("Rectangle.json"), True)
+        with open("Rectangle.json", mode='r') as myFile:
+            self.assertEqual(json.loads(myFile.read()),
+                             json.loads('[]'))
+        os.remove("Rectangle.json")
+
+    def test_rectangle_save_file_empty(self):
+        """
+        Testing to_dictionary method with an empty file
+        """
+        r = Rectangle(10, 7, 2, 8)
+        r1 = Rectangle(2, 4)
+        Rectangle.save_to_file([])
+        self.assertIs(os.path.exists("Rectangle.json"), True)
+        with open("Rectangle.json", mode='r') as myFile:
+            self.assertEqual(json.loads(myFile.read()),
+                             json.loads('[]'))
+        os.remove("Rectangle.json")
