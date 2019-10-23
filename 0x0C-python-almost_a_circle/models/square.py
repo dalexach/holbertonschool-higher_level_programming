@@ -29,10 +29,13 @@ class Square(Rectangle):
 
     @size.setter
     def size(self, value):
-        """ Setter for width of square """
-        super().validator("width", value)
-        Rectangle.width = value
-        Rectangle.height = value
+        """ Setter for size of square """
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        elif value <= 0:
+            raise ValueError('width must be > 0')
+        self.width = value
+        self.height = value
 
     # magic methods
 
@@ -67,9 +70,10 @@ class Square(Rectangle):
             for key, value in kwargs.items():
                 if key == 'id':
                     self.id = value
-                if key == 'size':
+                if key == "size":
                     self.width = value
                     self.height = value
+
                 if key == 'x':
                     self.x = value
                 if key == 'y':
