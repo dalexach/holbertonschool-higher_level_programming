@@ -92,7 +92,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(s1.y, 8)
         self.assertEqual(s1.id, 12)
         s1.update(23)
-        self.assertEqual(s1.id, 12)
+        self.assertEqual(s1.id, 23)
         self.assertEqual(s1.size, 5)
         self.assertEqual(s1.x, 5)
         self.assertEqual(s1.y, 8)
