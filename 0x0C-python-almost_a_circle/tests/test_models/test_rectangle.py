@@ -300,3 +300,22 @@ class TestRectangle(unittest.TestCase):
         r1.update(*[10, 9, 8, 7, 6])
         self.assertEqual(r1.y, 6)
         self.assertEqual(r1.__str__(), "[Rectangle] (10) 7/6 - 9/8")
+
+    def test_update_kwargs(self):
+        """
+        Test to update a rectangle with **kwargs
+        """
+        r = Rectangle(1, 1, 1, 1)
+        self.assertEqual(r.__str__(), "[Rectangle] (1) 1/1 - 1/1")
+        r.update(**{'height': 10})
+        self.assertEqual(r.__str__(), "[Rectangle] (1) 1/1 - 1/10")
+        r.update(**{'width': 9, 'x': 8})
+        self.assertEqual(r.__str__(), "[Rectangle] (1) 8/1 - 9/10")
+        r.update(**{'y': 1, 'width': 2, 'x': 3, 'id': 89})
+        self.assertEqual(r.__str__(), "[Rectangle] (89) 3/1 - 2/10")
+        r.update(**{'x': 1, 'height': 2, 'y': 3, 'width': 4})
+        self.assertEqual(r.__str__(), "[Rectangle] (89) 1/3 - 4/2")
+        r.update(**{'wow': 3, 'hey': 'wow'})
+        self.assertEqual(r.__str__(), "[Rectangle] (89) 1/3 - 4/2")
+        r.update({'x': 10, 'height': 8})
+        self.assertIs(type(r.id), dict)
