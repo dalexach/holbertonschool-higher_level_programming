@@ -5,6 +5,7 @@ Unit test for the Square class
 
 import unittest
 import json
+import pep8
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -17,7 +18,7 @@ class TestBase(unittest.TestCase):
 
     def tearDown(self):
         """
-        Reset the nb_objects
+        Reset the nb_sects
         """
         Base._Base__nb_objects = 0
 
@@ -44,6 +45,11 @@ class TestBase(unittest.TestCase):
         self.assertTrue(hasattr(Square, "load_from_file"))
         self.assertTrue(Square.load_from_file.__doc__)
 
+    def test_rectangle_pep8_conformance(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['./models/square.py'])
+        self.assertEqual(result.total_errors, 0, "Fix PEP8")
+
     def test_empty(self):
         """
         Test for an empty instantiation
@@ -59,12 +65,25 @@ class TestBase(unittest.TestCase):
             s1 = Square(1, 1, 1, 1, 1)
 
     def test_correct_inst(self):
-        """ Test for a correct instantiation. """
+        """
+        Test for a correct instantiation
+        """
         s1 = Square(3, 1, 2, 45)
         self.assertEqual(s1.size, 3)
         self.assertEqual(s1.x, 1)
         self.assertEqual(s1.y, 2)
         self.assertEqual(s1.id, 45)
+
+    def test_default_square(self):
+        """
+        Test for a default square
+        """
+        s = Square(1)
+        self.assertEqual(s.width, 1)
+        self.assertEqual(s.height, 1)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 0)
+        self.assertEqual(s.y, 0)
 
     def test_str_rep(self):
         """
@@ -106,6 +125,43 @@ class TestBase(unittest.TestCase):
         s1.update(6, x=23)
         self.assertEqual(s1.id, 6)
         self.assertEqual(s1.x, 1)
+
+    def test_update_error(self):
+        """
+        Testing the update with invalid arguments
+        """
+        s = Square(1)
+        s.update()
+        self.assertEqual(s.id, 1)
+        self.assertEqual(s.size, 1)
+        self.assertEqual(s.x, 0)
+        self.assertEqual(s.y, 0)
+
+        with self.assertRaisesRegex(TypeError, "width must be an integer"):
+            s.update(size='3')
+
+        with self.assertRaisesRegex(TypeError, "x must be an integer"):
+            s.update(x={'a': 1})
+
+        with self.assertRaises(TypeError) as context:
+            s.update(y=[31])
+        self.assertIn('y must be an integer', str(context.exception))
+
+        with self.assertRaises(ValueError) as context:
+            s.update(size=0)
+        self.assertIn('width must be > 0', str(context.exception))
+
+        with self.assertRaises(ValueError) as context:
+            s.update(size=-20)
+        self.assertIn('width must be > 0', str(context.exception))
+
+        with self.assertRaises(ValueError) as context:
+            s.update(x=-30)
+        self.assertIn('x must be >= 0', str(context.exception))
+
+        with self.assertRaises(ValueError) as context:
+            s.update(y=-80)
+        self.assertIn('y must be >= 0', str(context.exception))
 
     def test_to_dict(self):
         """

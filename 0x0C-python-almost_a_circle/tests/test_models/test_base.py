@@ -6,6 +6,7 @@ Unit test for the Base class
 import unittest
 import json
 import os
+import pep8
 from models.base import Base
 from models.rectangle import Rectangle
 from models.square import Square
@@ -45,6 +46,11 @@ class TestBase(unittest.TestCase):
         self.assertTrue(hasattr(Base, "load_from_file"))
         self.assertTrue(Base.load_from_file.__doc__)
 
+    def test_rectangle_pep8_conformance(self):
+        pep8style = pep8.StyleGuide(quiet=True)
+        result = pep8style.check_files(['./models/base.py'])
+        self.assertEqual(result.total_errors, 0, "Fix PEP8")
+
     def test_base_creation(self):
         """
         Testing the creation of the base
@@ -61,6 +67,10 @@ class TestBase(unittest.TestCase):
         self.assertTrue(b1.id, 12)
         self.assertTrue(test2[:29], '<models.base.Base object at ')
         self.assertTrue(b2.id, 2)
+
+    def test_base_instance(self):
+        b = Base()
+        self.assertIsInstance(b, Base)
 
     def test_base_id(self):
         """
