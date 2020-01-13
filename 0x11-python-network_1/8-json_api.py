@@ -17,7 +17,8 @@ if __name__ == "__main__":
     q = argv[1] if len(argv) > 1 else ""
 
     try:
-        url = "http://7d1493591ff0.19.hbtn-cod.io:5000/search_user"
+        url = "http://0.0.0.0:5000/search_user"
+        # url = "http://7d1493591ff0.19.hbtn-cod.io:5000/search_user"
         request = requests.post(url, data={'q': q}).json()
         if 'id' in request and 'name' in request:
             print("[{}] {}".format(request['id'], request['name']))
