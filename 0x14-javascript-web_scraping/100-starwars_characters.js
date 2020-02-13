@@ -7,8 +7,8 @@ request.get(url, function (err, response, body) {
   if (err) {
     console.log(err);
   } else {
-    let all = JSON.parse(body).characters;
-    for (let cha of all) {
+    const all = JSON.parse(body).characters;
+    for (const cha of all) {
       request(cha, function (err, response, body) {
         if (err) {
           console.log(err);
